@@ -1,10 +1,7 @@
-from flask import Flask
+from app import db
+import datetime
 
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return "Hello World"
-
-if __name__ == "__main__":
-    app.run()
+class Todo(db.Document):
+    content = db.StringField(required=True, max_length=20)
+    time = db.DateTimeField(default=datetime.datetime.now())
+    status = db.IntField(default=0)
