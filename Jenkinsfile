@@ -23,7 +23,7 @@ pipeline {
                     // Change to the repository directory
                     dir("${repoDirectory}") {
                         // Run your Python3 management command
-                        sh "gunicorn --bind 0.0.0.0:5001 wsgi:app"
+                        sh "gunicorn --bind 0.0.0.0:5001 wsgi:app &"
                         sh "pwd"
                     }
                 }
