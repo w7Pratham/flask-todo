@@ -7,9 +7,9 @@ pipeline {
             steps {
                 script {
                     // Define the repository URL
+                    sh "cd /home/jenkins/"
+                    sh "rm -rf *"
                     def repoUrl = 'https://github.com/w7Pratham/flask-todo.git'
-                    def repoDirectory = 'flask-todo'
-
                     // Clone the repository
                     sh "git clone ${repoUrl}"
                 }
@@ -23,7 +23,7 @@ pipeline {
                     // Change to the repository directory
                     dir("${repoDirectory}") {
                         // Run your Python3 management command
-                        sh "python3 run.py &"
+                        sh "gunicorn --bind 0.0.0.0:5001 wsgi:app"
                         sh "pwd"
                     }
                 }
