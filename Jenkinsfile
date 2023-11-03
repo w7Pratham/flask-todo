@@ -25,6 +25,7 @@ pipeline {
                     dir("${repoDirectory}") {
                         // Run your Python3 management command
                         sh "python3 run.py &"
+                        sh "pwd"
                     }
                 }
             }
