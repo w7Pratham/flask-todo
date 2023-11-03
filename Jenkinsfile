@@ -11,7 +11,7 @@ pipeline {
                     def repoDirectory = 'flask-todo'
 
                     // Clone the repository
-                    rm -rf ${repoDirectory}
+                    sh "rm -rf ${repoDirectory}"
                     sh "git clone ${repoUrl}"
                 }
             }
