@@ -2,25 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Remove Existing Repository') {
-            steps {
-                script {
-                    // Define the repository directory
-                    def repoDirectory = 'flask-todo'
-
-                    // Remove the existing repository directory if it exists
-                        sh "rm -rf ${repoDirectory}"
-                }
-            }
-        }
 
         stage('Clone Repository') {
             steps {
                 script {
                     // Define the repository URL
                     def repoUrl = 'https://github.com/w7Pratham/flask-todo.git'
+                    def repoDirectory = 'flask-todo'
 
                     // Clone the repository
+                    rm -rf ${repoDirectory}
                     sh "git clone ${repoUrl}"
                 }
             }
