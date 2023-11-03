@@ -12,6 +12,7 @@ pipeline {
                     def repoUrl = 'https://github.com/w7Pratham/flask-todo.git'
                     // Clone the repository
                     sh "git clone ${repoUrl}"
+                    sh "pwd"
                 }
             }
         }
@@ -19,6 +20,8 @@ pipeline {
         stage('Change Directory and Run Python Script') {
             steps {
                 script {
+                    sh "cd /home/jenkins/"
+                    
                     def repoDirectory = 'flask-todo'
                     // Change to the repository directory
                     dir("${repoDirectory}") {
