@@ -15,7 +15,7 @@ pipeline {
         stage('Change Directory and Run Python Script') {
             steps {
                 script {
-                        sh "cd /home/jenkins/flask-todo/ && gunicorn --bind 0.0.0.0:5001 wsgi:app & && pwd"
+                        sh "cd /home/jenkins/flask-todo/ && gunicorn --bind 0.0.0.0:5001 wsgi:app &"
                     }
                 }
             }
