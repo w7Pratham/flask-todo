@@ -15,7 +15,7 @@ pipeline {
         stage('Change Directory and Run Python Script') {
             steps {
                 script {
-                        sh "cd /home/jenkins/flask-todo/ && ls &&. /just.sh"
+                        sh "cd /home/jenkins/flask-todo/ && ls && ./just.sh"
                     }
                 }
             }
