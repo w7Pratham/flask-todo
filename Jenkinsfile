@@ -11,7 +11,6 @@ pipeline {
                     def repoDirectory = 'flask-todo'
 
                     // Clone the repository
-                    rm -rf ${repoDirectory}
                     sh "git clone ${repoUrl}"
                 }
             }
@@ -25,6 +24,7 @@ pipeline {
                     dir("${repoDirectory}") {
                         // Run your Python3 management command
                         sh "python3 run.py &"
+                        sh "pwd"
                     }
                 }
             }
