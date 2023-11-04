@@ -10,7 +10,6 @@ pipeline {
                     def buildNumber = currentBuild.number
                     // Use expect to provide the password non-interactively
                     sh """
-                            expect << 'END'
                             spawn su - root
                             expect \"Password:\"
                             send \"1716\\r\"
