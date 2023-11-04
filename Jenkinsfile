@@ -7,17 +7,10 @@ pipeline {
             steps {
                 script {
                     // Define the repository URL
-                    sh "ls"
+                    sh "docker image build -t flask_docker ."
+                    sh "docker run -p 5000:5000 -d flask_docker"
                 }
             }
         }
-
-        stage('Change Directory and Run Python Script') {
-            steps {
-                script {
-                        sh "ls"
-                    }
-                }
-            }
         }
     }

@@ -1,20 +1,19 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim-buster
+# start by pulling the python image
+FROM python:3.8-alpine
 
-# Set the working directory to /app
+# copy the requirements file into the image
+COPY ./requirements.txt /app/requirements.txt
+
+# switch working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# install the dependencies and packages in the requirements file
+RUN pip install -r requirements.txt
+
+# copy every content from the local file to the image
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org flask
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python" ]
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5001
-
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["view.py" ]
