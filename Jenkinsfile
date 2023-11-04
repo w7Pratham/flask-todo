@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     // Define the repository URL
-                    sh "cd /home/jenkins/ && rm -rf * && git clone https://github.com/w7Pratham/flask-todo.git && pwd"
+                    sh "cd flask-todo && ls"
                 }
             }
         }
