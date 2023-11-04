@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     // Define the repository URL
-                    sh "cd flask-todo && ls"
+                    sh "ls && cd flask-todo"
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         stage('Change Directory and Run Python Script') {
             steps {
                 script {
-                        sh "ls && cd /flask-todo/ && ls"
+                        sh "whoami"
                     }
                 }
             }
