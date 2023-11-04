@@ -27,7 +27,7 @@ services:
     entrypoint: /entrypoint.sh
 
   dock:
-    image: pratham17/dock:v3
+    image: pratham17/dock:v4
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
