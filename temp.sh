@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 /root/app.py
+nohup python3 /root/app.py &
